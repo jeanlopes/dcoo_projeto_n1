@@ -1,0 +1,90 @@
+h1. DCOO 2013-01 - GRASP e GoF - Trabalho de Implementação N1
+
+
+h2. Índice
+
+{toc}
+
+h2. Regras
+
+* Trabalho EM DUPLA
+* As tarefas devem ser "COMMITADAS" EM um repositório GIT
+* O arquivo do projeto eclipse *DEVE TER O NOME NO SEGUINTE PADRÃO*:
+@dcoo_projeto_n1_joaozinho_mariazinha@
+
+h2. Escopo do Trabalho
+
+h3. GRASP Patterns
+
+* *Especialista da Informação*
+* *Criador*
+* *Pura Invenção*
+
+h3. Creational Patterns 
+
+* *Factory Method*
+
+h3. Behavioral Patterns
+
+* *Strategy*
+
+h3. Contexto
+
+Você deve implementar um mecanismo de cálculo de impostos para a região sul incluindo Paraná, Santa Catarina e Rio Grande do Sul e empregando os  padrões de projeto GRASP e GoF.
+
+
+h2. PARTE 1 - Implementação do Modelo de Domínio com GRASP PATTERNS
+
+Você deve implementar o seguinte modelo de cálculo de impostos em JAVA, usando os padrões *Especialista da Informação* e *Criador*. Não devemos esquecer os TESTES em JUNIT!  
+
+Segue o modelo 1 (tarefas 1 a 3): 
+
+!{60%}01_grasp.png! 
+
+Em um segundo momento deve implementar o padrão *Invenção Pura*, extraindo o Cálculo do ICMS para a nova classe *CalculoICMS* como mostrado na seguinte figura: 
+
+Segue o modelo 2 (tarefa 4):
+
+!{60%}02_grasp.png! 
+
+h3. Lista de Tarefas
+
+* *T001* - Modelar Dominio - modelo 1
+* *T002* - Implementar os Padrões *Especialista da Informação* e *Criador*  *SEM* os métodos @calcularTotal()@ e @calcularTotalSemImpostos()@ (as estratégias de cálculo estão nas notas do Diagrama; para ler o imposto de SC use a classe @edu.faqi.pocs.properties.LeProperties@ como exemplo) - modelo 1 
+* *T003* - Implementar os métodos @calcularTotal()@ e @calcularTotalSemImpostos()@ e as classes de teste - modelo 1
+* *T004* - Implementar a classe @CalculoICMS@ extraindo a lógica de cálculo de imposto do método @NotaFiscal.calcularTotal()@ para o método @CalculoICMS@ 
+ 
+
+h2. Parte 2 - Implementaçao do GoF Strategy
+
+Com o objetivo de melhorar o design da classe @CalculoICMS@ refatorar a classe usando o padrão Gof Strategy de acordo com o diagrama abaixo:
+  
+!{60%}03_gof.png! 
+
+
+h3. Lista de Tarefas
+
+* *T005* - Modelar Dominio e Classes de Teste
+* *T007* - Criar Classe @CalculoICMSRS@ e extrair logica correspondente da classe @NotaFiscal.calcularTotal()@  
+* *T008* - Refatorar médodo @NotaFiscal.calcularTotal()@ para chamar a instanciar Strategy @CalculoICMSRS@
+* *T009* - Criar Classe @CalculoICMSSC@ e extrair logica correspondente da classe @NotaFiscal.calcularTotal()@  
+* *T010* - Refatorar médodo @NotaFiscal.calcularTotal()@ para chamar a instanciar Strategy @CalculoICMSSC@
+* *T011* - Criar Classe @CalculoICMSPR@ e extrair logica correspondente da classe @NotaFiscal.calcularTotal()@  
+* *T012* - Refatorar médodo @NotaFiscal.calcularTotal()@ para chamar a instanciar Strategy @CalculoICMSPR@
+
+
+h2. Parte 3 - Implementação do GoF Factory
+
+A instanciação direta da classe strategy em @NotaFiscal@ limita a flexibilidade da nota fiscal, para tanto será feita uma refatoração implementando o padrão *Factory Method* para cada *Strategy* de cálculo de Nota Fiscal.
+
+!{60%}04_gof.png! 
+
+h3. Lista de Tarefas
+
+* *T013* - Criar a Factory @CalculoICMSFactory@ e refatoar a classe @NotaFiscal@ para obter a *Strategy* correta.
+
+
+
+h2. Notas e Referências
+
+fn1. "Joshua Kerievsky(2004) -  Refactoring to Patterns":file:///F:/reference/books/Design/refactoring/Joshua_Kerievsky(2004)_-_Refactoring.to_Patterns_-_Addison_Wesley.chm ( "amazon":http://www.amazon.com/Refactoring-Patterns-Joshua-Kerievsky/dp/0321213351/ref=sr_1_1?ie=UTF8&qid=1365456802&sr=8-1&keywords=Refactoring+to+Patterns ) 

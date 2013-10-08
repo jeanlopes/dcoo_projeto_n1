@@ -103,6 +103,8 @@ public class NotaFiscal {
 		}
 	}
 
+	
+	//ja estava pronto o T003;
 	public Double CalcularTotalSemImposto() {
 		try {
 			double valorTotal = 0.0;

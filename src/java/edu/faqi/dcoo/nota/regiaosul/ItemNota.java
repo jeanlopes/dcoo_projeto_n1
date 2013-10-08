@@ -1,26 +1,35 @@
 package edu.faqi.dcoo.nota.regiaosul;
 
+//Este é o padrão ESPECIALISTA
 public class ItemNota {
 
 	int quantidade;
-	int codProduto;
+	Produto produto;
 	int codNotaFiscal;
 
+	public ItemNota(Produto produto, int quantidade){
+		this.produto = produto;
+		this.quantidade = quantidade;
+	}
+	
+	
 	public int getQuantidade() {
 		return quantidade;
 	}
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}	
+	
+	public Produto getProduto() {
+		return produto;
 	}
 
-	public int getCodProduto() {
-		return codProduto;
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
-	public void setCodProduto(int codProduto) {
-		this.codProduto = codProduto;
-	}
 
 	public int getCodNotaFiscal() {
 		return codNotaFiscal;
@@ -30,8 +39,11 @@ public class ItemNota {
 		this.codNotaFiscal = codNotaFiscal;
 	}
 
-	public static Double getValorParcial() {
-		return null;
+	
+	
+	public Double getValorParcial() {		
+		return this.getProduto().getPrecoMethod() * this.quantidade;
+		
 	}
 	
 	

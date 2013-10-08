@@ -30,12 +30,9 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	
-	
-	public static Double getPrecoMethod() {
-		return null;
+	public Double getPrecoMethod() {
+		return this.preco;
+
 	}
 
-	
-	
 }
